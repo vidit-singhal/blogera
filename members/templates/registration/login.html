@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<head>
+
+    <style type="text/css">
+        .content{
+            background-color: rgba(255, 255, 255, 0.555);
+            width: 80%;
+            padding: 40px;
+            margin: 100px auto;
+        }
+
+    </style>
+
+</head>
+
+<div class="container">
+    <div class="content">
+
+<h1>LOGIN...</h1>
+<br/><br/>
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+<!--        {{ form.as_p }}-->
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+
+
+        <button class="btn btn-primary">Login</button>
+        <br/><br/>
+
+        Not Registered?? Sign Up <a href="{% url 'register' %}"> Here...</a>
+
+    </form>
+</div>
+</div>
+</div>
+
+<br/><br/><br/><br/><br/><br/>
+{% endblock %}
+

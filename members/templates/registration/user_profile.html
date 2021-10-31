@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+
+    <style type="text/css">
+        .content{
+            background-color: rgba(255, 255, 255, 0.555);
+            width: 80%;
+            padding: 40px;
+            margin: 100px auto;
+        }
+
+    </style>
+
+</head>
+
+<div class="container">
+    <div class="content">
+
+<h1>Profile.....</h1>
+<hr>
+<br/>
+
+<!--
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-2">
+
+            {% if page_user.profile_pic is None %}
+            <img src="{% static 'theblog/images/placeholder.jpg' %}" class="card-img">
+            {% else %}
+            <img src="{{ page_user.profile_pic.url }}" class="card-img">
+            {% endif %}
+        </div>
+        <div class="col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ page_user.first_name}}
+                    {{ page_user.last_name}}
+                </h5>
+                <p class="small text-muted">
+
+
+                    {% if page_user.website_url%}
+                    <a href="{{ page_user.website_url}}">Website</a> |
+                    {% endif %}
+
+                    {% if page_user.facebook_url%}
+                    <a href="{{ page_user.facebook_url}}">Facebook</a> |
+                    {% endif %}
+
+                    {% if page_user.twitter_url%}
+                    <a href="{{ page_user.twitter_url}}">Twitter</a> |
+                    {% endif %}
+
+                    {% if page_user.instagram_url%}
+                    <a href="{{ page_user.instagram_url}}">Instagram</a> |
+                    {% endif %}
+
+                    {% if page_user.github_url%}
+                    <a href="{{ page_user.github_url}}">Github</a>
+                    {% endif %}
+
+                </p>
+                <p class="card-text">{{ page_user.bio}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+
+<div class="card" style="width: 18rem;">
+
+    {% if page_user.profile_pic is None %}
+        <img src="{% static 'theblog/images/placeholder.jpg' %}" class="card-img-top">
+    {% else %}
+        <img src="{{ page_user.profile_pic.url }}" class="card-img-top">
+    {% endif %}
+
+  <div class="card-body">
+    <h5 class="card-title">
+        {{ page_user.first_name}}
+        {{ page_user.last_name}}
+    </h5>
+
+    <p class="small text-muted">
+
+
+        {% if page_user.website_url%}
+            <a href="{{ page_user.website_url}}">Website</a> |
+        {% endif %}
+
+        {% if page_user.facebook_url%}
+            <a href="{{ page_user.facebook_url}}">Facebook</a> |
+        {% endif %}
+
+        {% if page_user.twitter_url%}
+            <a href="{{ page_user.twitter_url}}">Twitter</a> |
+        {% endif %}
+
+        {% if page_user.instagram_url%}
+            <a href="{{ page_user.instagram_url}}">Instagram</a> |
+        {% endif %}
+
+        {% if page_user.github_url%}
+            <a href="{{ page_user.github_url}}">Github</a>
+        {% endif %}
+
+    </p>
+
+    <p class="card-text">
+        <strong>BIO</strong>
+        <Br/>
+        {{ page_user.bio}} </p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>
+</div>
+</div>
+<br/><br/><br/><br/><br/><br/>
+{% endblock %}
+

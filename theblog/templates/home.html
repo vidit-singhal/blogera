@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div id="post-div" class="container-fluid">
+  <div id="img-container" class="container-fluid">
+    <img
+      id="img-div"
+      src="./../../static/theblog/images/banner.jpg"
+      alt="Banner"
+    />
+    <div id="img-text" class="container-fluid"><h1>BLOGERA</h1></div>
+  </div>
+
+  <div id="articles-list" class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for post in object_list %}
+      <div id="articles-list1" class="container-fluid">
+        <!-- <li><a href="{% url 'article-detail' post.pk %}"> {{ post.title }}</a> -
+            <a href="{% url 'category' post.category|slugify %}"> {{ post.category }}</a> -
+            {{ post.author.first_name }}
+            {{ post.author.last_name }} -
+            {{ post.post_date }}
+            {% if user.is_authenticated %} -
+
+            {% if user.id == post.author.id %}
+            <small>
+
+                <a href="{% url 'update_post' post.pk %}">(Edit)</a>
+
+                <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+            </small>
+            {% endif %}
+            {% endif %}
+            <br />
+            {{ post.snippet }}
+            </li> -->
+
+        <div class="col">
+          <div id="home-card" class="card" style="width: 18rem">
+            <img
+              class="card-img-top"
+              src="./../../static/theblog/images/default-post.jpg"
+              alt="Card image cap"
+            />
+            <div id="home-card-body" class="card-body">
+              <h5 id="title" class="card-title">
+                <a href="{% url 'article-detail' post.pk %}"
+                  >{{ post.title }}</a
+                >
+              </h5>
+              <p class="card-text">
+                {{ post.author.first_name }} {{ post.author.last_name }}<br />
+                {{ post.post_date }}
+              </p>
+              <p id="snip" class="card-text">{{ post.snippet }}</p>
+
+              <a href="{% url 'update_post' post.pk %}" class="btn btn-solid-lg"
+                >Edit</a
+              >
+              <a href="{% url 'delete_post' post.pk %}" class="btn btn-solid-lg"
+                >Delete</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- </div> -->
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
