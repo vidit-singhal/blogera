@@ -148,3 +148,9 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
+
+ALLOWED_HOSTS = [
+    '0.0.0.0'
+    'python-blogera.herokuapp.com',
+    '127.0.0.1'
+]
